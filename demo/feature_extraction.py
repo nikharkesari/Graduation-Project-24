@@ -123,6 +123,9 @@ def extract_features(image,  min_det_thresh=.3):
     # Loop over all thresholded detections.
     features=[]
     for class_id, score in zip(classes_thresh, scores_thresh):
+        # removes duplicates
+        # if class_index[class_id] not in features:
+        #     features.append(class_index[class_id])
         features.append(class_index[class_id])
     
     return features
