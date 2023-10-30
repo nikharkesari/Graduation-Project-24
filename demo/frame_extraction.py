@@ -37,7 +37,7 @@ def scale_down_frames(input_folder, output_folder):
     image_files = [f for f in os.listdir(input_folder) if f.endswith(
         (".jpg", ".jpeg", ".png", ".bmp"))]
 
-    scale_factor = 0.25
+    scale_factor = 0.80
 
     for image_file in image_files:
         input_path = os.path.join(input_folder, image_file)
