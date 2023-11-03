@@ -1,3 +1,3 @@
-# Graduation-Project-24
+# User Interest Based Video Summarization Using Machine Learning
 
 The project focuses on developing a user interest based video summarization system using machine learning techniques. It aims to automatically generate concise and relevant video summaries based on user-provided textual queries. The process involves video preprocessing, information retrieval, video ranking, video summarization, and natural language generation to produce coherent textual summaries. Machine learning models play a crucial role in each step, improving the system's ability to extract and present key information from videos, making it a valuable tool for content discovery and information retrieval from video content.
