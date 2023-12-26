@@ -29,6 +29,7 @@ def extract_frames(video_path, desired_fps=1):
         print('err')
     cap.release()
     cv2.destroyAllWindows()
+    return image_count
 
 
 def scale_down_frames(input_folder, output_folder):
