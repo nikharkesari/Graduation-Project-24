@@ -2,9 +2,9 @@ import cv2
 import os
 
 
-def extract_frames(video_path, desired_fps=1):
+def extract_frames(video_path, desired_fps=10):
     # output_directory=f'Frames_{video_path}'
-    output_directory = 'frames'
+    output_directory = "frames"
     os.makedirs(output_directory, exist_ok=True)
     cap = cv2.VideoCapture(video_path)
     if cap.isOpened():
@@ -20,13 +20,14 @@ def extract_frames(video_path, desired_fps=1):
             if frame_count % frame_interval == 0:
                 image_count += 1
                 frame_filename = os.path.join(
-                    output_directory, f'{image_count:04d}.jpg')
+                    output_directory, f"{image_count:04d}.jpg"
+                )
                 cv2.imwrite(frame_filename, frame)
 
             frame_count += 1
-        print('Number of frames extracted is ', image_count)
+        print("Number of frames extracted is ", image_count)
     else:
-        print('err')
+        print("err")
     cap.release()
     cv2.destroyAllWindows()
     return image_count
@@ -35,10 +36,13 @@ def extract_frames(video_path, desired_fps=1):
 def scale_down_frames(input_folder, output_folder):
     os.makedirs(output_folder, exist_ok=True)
 
-    image_files = [f for f in os.listdir(input_folder) if f.endswith(
-        (".jpg", ".jpeg", ".png", ".bmp"))]
+    image_files = [
+        f
+        for f in os.listdir(input_folder)
+        if f.endswith((".jpg", ".jpeg", ".png", ".bmp"))
+    ]
 
-    scale_factor = 0.80
+    scale_factor = 0.25
 
     for image_file in image_files:
         input_path = os.path.join(input_folder, image_file)
@@ -53,7 +57,8 @@ def scale_down_frames(input_folder, output_folder):
         new_height = int(height * scale_factor)
 
         # Resize the image
-        resized_img = cv2.resize(img, (new_width, new_height),
-                                 interpolation=cv2.INTER_AREA)
+        resized_img = cv2.resize(
+            img, (new_width, new_height), interpolation=cv2.INTER_AREA
+        )
         # Save the resized image
         cv2.imwrite(output_path, resized_img)
